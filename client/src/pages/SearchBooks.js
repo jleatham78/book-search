@@ -75,7 +75,7 @@ const SearchBooks = () => {
       setSavedBookIds([...savedBookIds, bookToSave.bookId]);
 
       // if book successfully saves to user's account, save book id to state
-      Auth.login(data.token)
+      Auth.login(data.loginUser.token)
     } catch (err) {
       console.error(err);
     }

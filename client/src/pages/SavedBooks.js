@@ -19,7 +19,6 @@ const SavedBooks = () => {
 
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || {};
-  console.log(userData);
 
   //use useQuery hook to execute the GET_ME query on load and save it to a variable named userData
 
@@ -40,7 +39,7 @@ const SavedBooks = () => {
     try {
       //const { loading, data } = 
       await removeBook({
-        variables: { BookData: { bookId }}
+        variables: { BookData: bookId }
         });
 
       //const updatedUser = await data.json();
@@ -49,7 +48,7 @@ const SavedBooks = () => {
       removeBookId(bookId);
     
         // if data isn't here yet, say so
-    Auth.login(data.token)
+    Auth.login(data.loginUser.token)
     } catch (e) {
       console.error(e);
     }
